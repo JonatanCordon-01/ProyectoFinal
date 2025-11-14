@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameHub - Tienda Gamer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="diseño.css">
+</head>
+<body data-tienda="inicio">
+  <!-- ================= HEADER ================= -->
+  <header class="header" id="header">
+    <div class="header-left">
+      <div class="logo" onclick="mostrarInicio()" title="Volver al inicio">
+        <img src="Imagenes/logo.png" alt="Logo">
+      </div>
+      <select id="selector-tienda" onchange="cambiarTienda()">
+        <option value="nintendo">Nintendo</option>
+        <option value="playstation">PlayStation</option>
+        <option value="xbox">Xbox</option>
+        <option value="pc">PC</option>
+      </select>
+    </div>
+
+    <div class="header-center">
+      <input id="busqueda" type="search" placeholder="Buscar...">
+    </div>
+
+    <div class="header-right">
+      <button id="btn-login" class="btn-sesion" onclick="mostrar('login')">Iniciar sesión</button>
+      <button id="btn-registro" class="btn-sesion" onclick="mostrar('registro')">Registrarse</button>
+
+      <div class="carrito-btn" onclick="mostrarCarrito()">
+        <span>🛒</span><span id="contador" class="carrito-count">0</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== INICIO ===================== -->
+    <section id="inicio" class="page active content-wrap">
+      <div class="hero-intro">
+        <h1>Bienvenido a GameHub</h1>
+        <p>Selecciona una plataforma para continuar</p>
+      </div>
+      <div class="featured-row">
+        <div class="feature-card nintendo" onclick="abrirCategoria('nintendo')">Nintendo</div>
+        <div class="feature-card playstation" onclick="abrirCategoria('playstation')">PlayStation</div>
+        <div class="feature-card xbox" onclick="abrirCategoria('xbox')">Xbox</div>
+        <div class="feature-card pc" onclick="abrirCategoria('pc')">PC</div>
+      </div>
+    </section>
+
+    <!-- ===================== NINTENDO ===================== -->
+    <section id="nintendo" class="page plataforma content-wrap" data-cat="nintendo">
+      <div class="platform-row">
+        <aside class="sidebar">
+          <button onclick="abrirSubseccion('nintendo','juegos')">Juegos</button>
+          <button onclick="abrirSubseccion('nintendo','consolas')">Consolas</button>
+          <button onclick="abrirSubseccion('nintendo','controles')">Controles</button>
+          <button onclick="abrirSubseccion('nintendo','accesorios')">Accesorios</button>
+        </aside>
+        <div class="main-column">
+          <div class="carrusel large" id="carrusel-nintendo">
+            <div class="slides">
+              <div class="slide active"><img src="Imagenes/Productos/Nintendo/carrusel/carrusel1.png" alt="Zelda Tears of the Kingdom"></div>
+              <div class="slide"><img src="Imagenes/Productos/Nintendo/carrusel/carrusel2.png" alt=""></div>
+              <div class="slide"><img src="Imagenes/Productos/Nintendo/carrusel/carrusel3.png" alt=""></div>
+            </div>
+            <button class="prev" onclick="moverCarrusel('carrusel-nintendo',-1)">&#10094;</button>
+            <button class="next" onclick="moverCarrusel('carrusel-nintendo',1)">&#10095;</button>
+            <div class="dots" id="dots-nintendo"></div>
+          </div>
+
+          <section class="novedades">
+            <h3>Novedades</h3>
+            <div class="tarjetas">
+              <article class="tarjeta"><img src="Imagenes/Productos/Nintendo/Novedades/novedad1.jpg" alt=""><h4>Kirby Air Riders</h4><p>evento de prueba gratuita en linea.</p></article>
+              <article class="tarjeta"><img src="Imagenes/Productos/Nintendo/Novedades/novedad2.jpg" alt=""><h4>Pokemon Z-A</h4><p>10 consejos y trucos para los combates.</p></article>
+              <article class="tarjeta"><img src="Imagenes/Productos/Nintendo/Novedades/novedad3.jpg" alt=""><h4>Hyrule Warriors</h4><p>5 consejos que te haran imparable.</p></article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subpáginas Nintendo -->
+    <section id="nintendo-juegos" class="page subpage content-wrap" data-cat="nintendo">
+      <h2>Juegos - Nintendo</h2>
+      <div class="grid-productos">  
+        <!-- 10 tarjetas -->
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/juegos/juego1.jpg" alt="" class="producto-img"><h4>Super Mario Odyssey</h4><p>Q496.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/juegos/juego2.jpg" alt="" class="producto-img"><h4>Super Mario bros.U Deluxe</h4><p>Q490.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/juegos/juego3.jpg" alt="" class="producto-img"><h4>Mario Kart 8 Deluxe</h4><p>Q496.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/juegos/juego4.jpg" alt="" class="producto-img"><h4 >super smash bros ultimate</h4><p >Q497.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/juegos/juego5.jpg" alt="" class="producto-img"><h4 >Zelda Tears of the Kingdom</h4><p >Q590.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/juegos/juego6.jpg" alt="" class="producto-img"><h4 >super mario 3D world + Bowsers fury</h4><p >Q485.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/juegos/juego7.jpg" alt="" class="producto-img"><h4 >Donkey kong country tropical freeze</h4><p >Q600.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/juegos/juego8.jpg" alt="" class="producto-img"><h4 >Super mario bros wonder</h4><p >Q550.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/juegos/juego9.png" alt="" class="producto-img"><h4 >Mario & luigi brothership</h4><p >Q515.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/juegos/juego10.jpg" alt="" class="producto-img"><h4 >Mario party Jamboree</h4><p >Q515.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+
+      </div>
+      <button class="btn-return" onclick="volverTienda('nintendo')">← Volver</button>
+    </section>
+
+    <section id="nintendo-consolas" class="page subpage content-wrap" data-cat="nintendo">
+      <h2>Consolas - Nintendo</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas (vacias) -->
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/consolas/consola1.jpg" alt="" class="producto-img"><h4 >Nintendo 64</h4><p >Q500.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/consolas/consola2.jpg" alt="" class="producto-img"><h4 >Nintendo GameCube</h4><p >Q750.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/consolas/consola3.jpg" alt="" class="producto-img"><h4 >Nintendo Wii</h4><p >Q650.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/consolas/consola4.jpg" alt="" class="producto-img"><h4 >Nintendo Switch</h4><p >Q3200.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/consolas/consola5.jpg" alt="" class="producto-img"><h4 >Nintendo Switch 2</h4><p >Q6000.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      </div>
+      <button class="btn-return" onclick="volverTienda('nintendo')">← Volver</button>
+    </section>
+
+    <section id="nintendo-controles" class="page subpage content-wrap" data-cat="nintendo">
+      <h2>Controles - Nintendo</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas (vacias) -->
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/controles/control1.jpg" alt="" class="producto-img"><h4>Control N64</h4><p>Q259.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/controles/control2.jpg" alt="" class="producto-img"><h4 >Control N64</h4><p >Q200.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/controles/control3.jpg" alt="" class="producto-img"><h4 >Control GameCube</h4><p >Q300.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/controles/control4.jpg" alt="" class="producto-img"><h4 >Control GameCube</h4><p >Q340.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/controles/control5.jpg" alt="" class="producto-img"><h4 >Control wii (wii motion plus)</h4><p >Q300.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/controles/control6.jpg" alt="" class="producto-img"><h4 >Control wii clasica</h4><p >Q120.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/controles/control7.jpg" alt="" class="producto-img"><h4 >Joy Coins (switch 1)</h4><p >Q750.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/controles/control8.jpg" alt="" class="producto-img"><h4 >Pro controller (switch 1)</h4><p >Q550.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/controles/control9.jpg" alt="" class="producto-img"><h4 >Joy coins (switch 2)</h4><p >Q1140.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/controles/control10.jpg" alt="" class="producto-img"><h4 >Pro controller (switch 2)</h4><p >Q1065.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      </div>
+      <button class="btn-return" onclick="volverTienda('nintendo')">← Volver</button>
+    </section>
+
+    <section id="nintendo-accesorios" class="page subpage content-wrap" data-cat="nintendo">
+      <h2>Accesorios - Nintendo</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas (vacias) -->
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/Accesorios/accesorio1.jpg" alt="" class="producto-img"><h4 >Estuche para Switch</h4><p >Q250.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/Accesorios/accesorio2.png" alt="" class="producto-img"><h4 >Accesorio para juegos fit joy coin</h4><p >Q150.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/Accesorios/accesorio3.jpg" alt="" class="producto-img"><h4 >Accesorios para wii</h4><p >Q150.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/Accesorios/accesorio4.jpg" alt="" class="producto-img"><h4 >Accesorio para switch 2</h4><p >Q450.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/Accesorios/accesorio5.jpg" alt="" class="producto-img"><h4 >Amiibo Link TOTK</h4><p >Q350.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/Accesorios/accesorio6.jpg" alt="" class="producto-img"><h4 >amiibo Mario y Rosalina</h4><p >Q400.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/Accesorios/accesorio7.jpg" alt="" class="producto-img"><h4 > Amiibo Guardian ancestral (Zelda BOTW)</h4><p >Q250.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/Accesorios/accesorio8.jpg" alt="" class="producto-img"><h4 >Amiibo Animal crossing</h4><p >Q300.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/Accesorios/accesorio9.jpg" alt="" class="producto-img"><h4 >Cables de conexion Wii</h4><p >Q100.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Nintendo/Accesorios/accesorio10.jpg" alt="" class="producto-img"><h4 >Posadera para nintendo switch</h4><p >Q350.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      </div>
+      <button class="btn-return" onclick="volverTienda('nintendo')">← Volver</button>
+    </section>
+
+    <!-- ===================== PLAYSTATION ===================== -->
+    <section id="playstation" class="page plataforma content-wrap" data-cat="playstation">
+      <div class="platform-row">
+        <aside class="sidebar">
+          <button onclick="abrirSubseccion('playstation','juegos')">Juegos</button>
+          <button onclick="abrirSubseccion('playstation','consolas')">Consolas</button>
+          <button onclick="abrirSubseccion('playstation','controles')">Controles</button>
+          <button onclick="abrirSubseccion('playstation','accesorios')">Accesorios</button>
+        </aside>
+        <div class="main-column">
+          <div class="carrusel large" id="carrusel-playstation">
+            <div class="slides">
+              <div class="slide active"><img src="Imagenes/Productos/PlayStation/carrusel/carrusel1.png" alt=""></div>
+              <div class="slide"><img src="Imagenes/Productos/PlayStation/carrusel/carrusel2.png" alt=""></div>
+              <div class="slide"><img src="Imagenes/Productos/PlayStation/carrusel/carrusel3.png" alt=""></div>
+            </div>
+            <button class="prev" onclick="moverCarrusel('carrusel-playstation',-1)">&#10094;</button>
+            <button class="next" onclick="moverCarrusel('carrusel-playstation',1)">&#10095;</button>
+            <div class="dots" id="dots-playstation"></div>
+          </div>
+
+          <section class="novedades">
+            <h3>Novedades</h3>
+            <div class="tarjetas">
+              <article class="tarjeta"><img src="Imagenes/Productos/PlayStation/novedades/novedad1.png" alt=""><h4>Stray</h4><p>Ayuda a un gato perdido a escapar de una ciberciudad en decadencia, repleta de criaturas peligrosas y robots misteriosos</p></article>
+              <article class="tarjeta"><img src="Imagenes/Productos/PlayStation/novedades/novedad2.png" alt=""><h4>EA SPORTS™ WRC 24</h4><p>Ponte al volante de los coches de rally más potentes del mundo y compite en tierra, nieve y asfalto mientras luchas por alcanzar la gloria</p></article>
+              <article class="tarjeta"><img src="Imagenes/Productos/PlayStation/novedades/novedad3.png" alt=""><h4>Totally Accurate Battle Simulator</h4><p>Recluta un ejército de guerreros tambaleantes y observa cómo luchan en batallas épicas con el motor físico más loco jamás creado.</p></article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subpáginas PlayStation -->
+    <section id="playstation-juegos" class="page subpage content-wrap" data-cat="playstation">
+      <h2>Juegos - PlayStation</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas -->
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/juegos/juego1.jpg" alt="" class="producto-img"><h4 >GTA 5</h4><p >Q460.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/juegos/juego2.jpg" alt="" class="producto-img"><h4 >Marvel vs Capcom</h4><p >Q500.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/juegos/juego3.jpg" alt="" class="producto-img"><h4 >God of War</h4><p >Q650.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/juegos/juego4.jpg" alt="" class="producto-img"><h4 >Jump force</h4><p >Q320.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/juegos/juego5.jpg" alt="" class="producto-img"><h4 >ratchet & clank</h4><p >Q150.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/juegos/juego6.jpg" alt="" class="producto-img"><h4 >red dead redemption 2</h4><p >Q250.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/juegos/juego7.jpg" alt="" class="producto-img"><h4 >mortal kombat 11</h4><p >Q380.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/juegos/juego8.jpg" alt="" class="producto-img"><h4 >street fighter 6</h4><p >Q150.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/juegos/juego9.jpg" alt="" class="producto-img"><h4 >shadow of the tomb raider</h4><p >Q315.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/juegos/juego10.jpg" alt="" class="producto-img"><h4 >Horizon</h4><p >Q150.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      </div>
+      <button class="btn-return" onclick="volverTienda('playstation')">← Volver</button>
+    </section>
+
+    <section id="playstation-consolas" class="page subpage content-wrap" data-cat="playstation">
+      <h2>Consolas - PlayStation</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas -->
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/consolas/consola1.jpg" alt="" class="producto-img"><h4 >PlayStation 1</h4><p >Q900.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/consolas/consola2.jpg" alt="" class="producto-img"><h4 >PlayStation 2</h4><p >Q1100.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/consolas/consola3.jpg" alt="" class="producto-img"><h4 >PlayStation 3</h4><p >Q1300.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/consolas/consola4.jpg" alt="" class="producto-img"><h4 >PlayStation 4</h4><p >Q2400.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/consolas/consola5.jpg" alt="" class="producto-img"><h4 >PlayStation 5</h4><p >Q7000.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      </div>
+      <button class="btn-return" onclick="volverTienda('playstation')">← Volver</button>
+    </section>
+
+    <section id="playstation-controles" class="page subpage content-wrap" data-cat="playstation">
+      <h2>Controles - PlayStation</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas -->
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/controles/control1.jpg" alt="" class="producto-img"><h4 >Control PS 4</h4><p >Q650.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/controles/control2.jpg" alt="" class="producto-img"><h4 >Control PS 5</h4><p >Q800.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/controles/control3.jpg" alt="" class="producto-img"><h4 >Control PS 3</h4><p >Q450.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/controles/control4.jpg" alt="" class="producto-img"><h4 >Control PS 5</h4><p >Q800.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/controles/control5.jpg" alt="" class="producto-img"><h4 >Control PS 5</h4><p >Q800.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/controles/control6.jpg" alt="" class="producto-img"><h4 >Control PS 4</h4><p >Q650.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/controles/control7.jpg" alt="" class="producto-img"><h4 >Control PS 5</h4><p >Q800.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/controles/control8.jpg" alt="" class="producto-img"><h4 >Control PS 4</h4><p >Q650.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/controles/control9.jpg" alt="" class="producto-img"><h4 >Control PS 5</h4><p >Q800.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/controles/control10.jpg" alt="" class="producto-img"><h4 >Control PS 5</h4><p >Q800.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      </div>
+      <button class="btn-return" onclick="volverTienda('playstation')">← Volver</button>
+    </section>
+
+    <section id="playstation-accesorios" class="page subpage content-wrap" data-cat="playstation">
+      <h2>Accesorios - PlayStation</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas -->
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/Accesorios/accesorio1.jpg" alt="" class="producto-img"><h4 >repuestos para control</h4><p >Q200.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/Accesorios/accesorio2.jpg" alt="" class="producto-img"><h4 >timon y pedal</h4><p >Q3500.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/Accesorios/accesorio3.jpg" alt="" class="producto-img"><h4 >Casco de VR</h4><p >Q1200.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/Accesorios/accesorio4.jpg" alt="" class="producto-img"><h4 >Auriculares inalámbricos PULSE Explore PS 5</h4><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/Accesorios/accesorio5.jpg" alt="" class="producto-img"><h4 >Headset PS 5</h4><p >Q1700.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      </div>
+      <button class="btn-return" onclick="volverTienda('playstation')">← Volver</button>
+    </section>
+
+    <!-- ===================== XBOX ===================== -->
+    <section id="xbox" class="page plataforma content-wrap" data-cat="xbox">
+      <div class="platform-row">
+        <aside class="sidebar">
+          <button onclick="abrirSubseccion('xbox','juegos')">Juegos</button>
+          <button onclick="abrirSubseccion('xbox','consolas')">Consolas</button>
+          <button onclick="abrirSubseccion('xbox','controles')">Controles</button>
+          <button onclick="abrirSubseccion('xbox','accesorios')">Accesorios</button>
+        </aside>
+        <div class="main-column">
+          <div class="carrusel large" id="carrusel-xbox">
+            <div class="slides">
+              <div class="slide active"><img src="Imagenes/Productos/Xbox/carrusel/carrusel1.png" alt=""></div>
+              <div class="slide"><img src="Imagenes/Productos/Xbox/carrusel/carrusel2.png" alt=""></div>
+              <div class="slide"><img src="Imagenes/Productos/Xbox/carrusel/carrusel3.png" alt=""></div>
+            </div>
+            <button class="prev" onclick="moverCarrusel('carrusel-xbox',-1)">&#10094;</button>
+            <button class="next" onclick="moverCarrusel('carrusel-xbox',1)">&#10095;</button>
+            <div class="dots" id="dots-xbox"></div>
+          </div>
+
+          <section class="novedades">
+            <h3>Novedades</h3>
+            <div class="tarjetas">
+              <article class="tarjeta"><img src="Imagenes/Productos/Xbox/novedades/novedad1.png" alt=""><h4>Descubre tu siguiente juego favorito</h4><p>Nuevos juegos el mismo día de su lanzamiento. Cientos de juegos. Transmitid desde cualquier lugar. Ganad recompensas.</p></article>
+              <article class="tarjeta"><img src="Imagenes/Productos/Xbox/novedades/novedad2.png" alt=""><h4>ARC Raiders</h4><p>Rebusca en la superficie para sobrevivir en un mundo desolado</p></article>
+              <article class="tarjeta"><img src="Imagenes/Productos/Xbox/novedades/novedad3.png" alt=""><h4>NBA 2K26</h4><p>Empieza la temporada fuerte con Temporada 2.</p></article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subpáginas Xbox -->
+    <section id="xbox-juegos" class="page subpage content-wrap" data-cat="xbox">
+      <h2>Juegos - Xbox</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas -->
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/juegos/juego1.jpg" alt="" class="producto-img"><h4 >Gear of war 4</h4><p >Q175.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/juegos/juego2.jpg" alt="" class="producto-img"><h4 >Mortal Kombat XL</h4><p >Q400.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/juegos/juego3.jpg" alt="" class="producto-img"><h4 >F1 25</h4><p >Q699.00</p><<button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/juegos/juego4.jpg" alt="" class="producto-img"><h4 >Rise of the Tomb Raider</h4><p >Q230.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/juegos/juego5.jpg" alt="" class="producto-img"><h4 >Battlefield 6</h4><p >Q437.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/juegos/juego6.jpg" alt="" class="producto-img"><h4 >Final Fantasy XVI</h4><p >Q200.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/juegos/juego7.jpg" alt="" class="producto-img"><h4 >Starfield</h4><p >Q530.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/juegos/juego8.jpg" alt="" class="producto-img"><h4 >Assassins creed valhalla</h4><p >Q460.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/juegos/juego9.jpg" alt="" class="producto-img"><h4 > call of duty black ops 7</h4><p >Q500.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/juegos/juego10.jpg" alt="" class="producto-img"><h4 >Immortals fenyx rising</h4><p >Q300.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      </div>
+      <button class="btn-return" onclick="volverTienda('xbox')">← Volver</button>
+    </section>
+
+    <section id="xbox-consolas" class="page subpage content-wrap" data-cat="xbox">
+      <h2>Consolas - Xbox</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas -->
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/consolas/consola1.jpg" alt="" class="producto-img"><h4 >Xbox</h4><p >Q1500.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/consolas/consola2.jpg" alt="" class="producto-img"><h4 >Xbox 360</h4><p >Q1800.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/consolas/consola3.jpg" alt="" class="producto-img"><h4 >Xbox One</h4><p >Q2000.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/consolas/consola4.jpg" alt="" class="producto-img"><h4 >Xbox Series S</h4><p >Q.4500.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/consolas/consola5.jpg" alt="" class="producto-img"><h4 >Xbox Series X</h4><p >Q6200.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      </div>
+      <button class="btn-return" onclick="volverTienda('xbox')">← Volver</button>
+    </section>
+
+    <section id="xbox-controles" class="page subpage content-wrap" data-cat="xbox">
+      <h2>Controles - Xbox</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas -->
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/controles/control1.jpg" alt="" class="producto-img"><h4 >Control Xbox one</h4><p >Q600.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PlayStation/controles/control2.jpg" alt="" class="producto-img"><h4 >Control Xbox series X/S</h4><p >Q700.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/controles/control3.jpg" alt="" class="producto-img"><h4 >Control Xbox one</h4><p >Q600.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/controles/control4.jpg" alt="" class="producto-img"><h4 >Control Xbox 360</h4><p >Q700.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/controles/control5.jpg" alt="" class="producto-img"><h4 >Control Xbox one</h4><p >Q600.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/controles/control6.jpg" alt="" class="producto-img"><h4 >Control Xbox series X/S</h4><p >Q700.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/controles/control7.jpg" alt="" class="producto-img"><h4 >Control Xbox series X/S</h4><p >Q700.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/controles/control8.jpg" alt="" class="producto-img"><h4 >Control Xbox one edicion ZZZ</h4><p >Q750.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/controles/control9.jpg" alt="" class="producto-img"><h4 >Control Xbox one</h4><p >Q600.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/controles/control10.jpg" alt="" class="producto-img"><h4 >Control Xbox one</h4><p >Q600.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      </div>
+      <button class="btn-return" onclick="volverTienda('xbox')">← Volver</button>
+    </section>
+
+    <section id="xbox-accesorios" class="page subpage content-wrap" data-cat="xbox">
+      <h2>Accesorios - Xbox</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas -->
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/Accesorios/accesorio1.jpg" alt="" class="producto-img"><h4 >Accesorios variados</h4><p >Q300.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/Accesorios/accesorio2.jpg" alt="" class="producto-img"><h4 >volante</h4><p >Q1500.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/Accesorios/accesorio3.jpg" alt="" class="producto-img"><h4 >Adaptive Controller</h4><p >Q550.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/Accesorios/accesorio4.jpg" alt="" class="producto-img"><h4 >estuche</h4><p >Q350.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/Xbox/Accesorios/accesorio5.jpg" alt="" class="producto-img"><h4 >estuche</h4><p >Q450.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      <button class="btn-return" onclick="volverTienda('xbox')">← Volver</button>
+    </section>
+
+    <!-- ===================== PC ===================== -->
+    <section id="pc" class="page plataforma content-wrap" data-cat="pc">
+      <div class="platform-row">
+        <aside class="sidebar">
+          <button onclick="abrirSubseccion('pc','juegos')">Juegos</button>
+          <button onclick="abrirSubseccion('pc','accesorios')">Accesorios</button>
+        </aside>
+        <div class="main-column">
+          <div class="carrusel large" id="carrusel-pc">
+            <div class="slides">
+              <div class="slide active"><img src="Imagenes/Productos/PC/carrusel/carrusel1.png" alt=""></div>
+              <div class="slide"><img src="Imagenes/Productos/PC/carrusel/carrusel2.png" alt=""></div>
+              <div class="slide"><img src="Imagenes/Productos/PC/carrusel/carrusel3.png" alt=""></div>
+            </div>
+            <button class="prev" onclick="moverCarrusel('carrusel-pc',-1)">&#10094;</button>
+            <button class="next" onclick="moverCarrusel('carrusel-pc',1)">&#10095;</button>
+            <div class="dots" id="dots-pc"></div>
+          </div>
+
+          <section class="novedades">
+            <h3>Novedades</h3>
+            <div class="tarjetas">
+              <article class="tarjeta"><img src="Imagenes/Productos/PC/novedades/novedad1.png" alt=""><h4>Festival de los animales</h4><p>Descubre descuentos en juegos centrados en todo tipo de criaturas, desde peludas hasta emplumadas.</p></article>
+              <article class="tarjeta"><img src="Imagenes/Productos/PC/novedades/novedad2.png" alt=""><h4>Bulb Boy: Guía</h4><p>Todos los Logros de Bulb Boy, guía en Español.</p></article>
+              <article class="tarjeta"><img src="Imagenes/Productos/PC/novedades/novedad3.png" alt=""><h4>Hollow Knight Silksong: Guía</h4><p>Una guía sencilla, paso a paso, donde te llevo de la mano por todo Telalejana para conseguir el 100% de la manera más óptima y sencilla</p></article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subpáginas PC -->
+    <section id="pc-juegos" class="page subpage content-wrap" data-cat="pc">
+      <h2>Juegos - PC</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas -->
+        <article class="card-producto"><img src="Imagenes/Productos/PC/juegos/juego1.jpg" alt="" class="producto-img"><h4 >Minecraft</h4><p >Q300.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/juegos/juego2.jpg" alt="" class="producto-img"><h4 >Residen evil requiem</h4><p >Q535.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/juegos/juego3.jpg" alt="" class="producto-img"><h4 >Cyberpunk 2077</h4><p >Q690.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/juegos/juego4.jpg" alt="" class="producto-img"><h4 >Dragon ball sparking zero</h4><p >Q535.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/juegos/juego5.jpg" alt="" class="producto-img"><h4 >hogwarts legacy</h4><p >Q460.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/juegos/juego6.jpg" alt="" class="producto-img"><h4 >the witcher 3</h4><p >Q300.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/juegos/juego7.jpg" alt="" class="producto-img"><h4 >ARK: Survival Evolved</h4><p >Q115.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/juegos/juego8.jpg" alt="" class="producto-img"><h4 >Sonic Racing: CrossWorlds</h4><p >Q460.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/juegos/juego9.jpg" alt="" class="producto-img"><h4 >Silent Hill f</h4><p >Q535.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/juegos/juego10.jpg" alt="" class="producto-img"><h4 >Stellar Blade</h4><p >Q460.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      </div>
+      <button class="btn-return" onclick="volverTienda('pc')">← Volver</button>
+    </section>
+
+    <section id="pc-accesorios" class="page subpage content-wrap" data-cat="pc">
+      <h2>Accesorios - PC</h2>
+      <div class="grid-productos">
+        <!-- 10 tarjetas -->
+        <article class="card-producto"><img src="Imagenes/Productos/PC/Accesorios/accesorio1.jpg" alt="" class="producto-img"><h4 >Ventilador para laptop</h4><p >Q350.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/Accesorios/accesorio2.jpg" alt="" class="producto-img"><h4 >Teclado y mouse luces LED</h4><p >Q500.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/Accesorios/accesorio3.jpg" alt="" class="producto-img"><h4 >USB inalambricas</h4><p >Q200.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/Accesorios/accesorio4.jpg" alt="" class="producto-img"><h4 >Bocinas LED</h4><p >Q350.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+        <article class="card-producto"><img src="Imagenes/Productos/PC/Accesorios/accesorio5.jpg" alt="" class="producto-img"><h4 >Soporte para laptop</h4><p >Q120.00</p><button class="btn-add" onclick="agregarDesdeTarjeta(this)">Agregar al carrito</button></article>
+      </div>
+      <button class="btn-return" onclick="volverTienda('pc')">← Volver</button>
+    </section>
+
+    <!-- ===================== LOGIN / REGISTRO / CARRITO ===================== -->
+    <section id="login" class="page content-wrap">
+  <div class="form-card">
+    <h2>Iniciar Sesión</h2>
+
+    <input type="text" id="usuario" placeholder="Correo o usuario">
+    <input type="password" id="contrasena" placeholder="Contraseña">
+
+    <button class="btn-primary" onclick="iniciarSesion()">Entrar</button>
+
+    <p id="mensajeLogin" class="muted"></p>
+
+    <!-- Advertencia para menores (se mostrará dinámicamente) -->
+    <div id="alertaMenor" class="menor-alert" style="display:none;">
+      Esta cuenta está supervisada por un tutor legal.
+    </div>
+  </div>
+</section>
+
+
+
+   <section id="registro" class="page content-wrap">
+  <div class="form-card">
+    <h2>Crear Cuenta</h2>
+
+    <input type="text" id="reg-nombre" placeholder="Nombre completo">
+    <input type="email" id="reg-email" placeholder="Correo electrónico">
+    <input type="password" id="reg-password" placeholder="Contraseña (mín. 6 caracteres)">
+    <input type="number" id="reg-edad" placeholder="Edad">
+
+    <label class="muted">
+      <input type="checkbox" id="reg-acepta"> Acepto los términos y condiciones
+    </label>
+
+    <div id="tutor-fields" style="display:none;">
+  <h3>Información del tutor legal</h3>
+
+  <input type="text" id="tutor-nombre" placeholder="Nombre del tutor">
+  <input type="email" id="tutor-email" placeholder="Correo del tutor">
+
+  <label class="muted">
+    <input type="checkbox" id="tutor-autoriza">
+    El tutor autoriza el uso de esta cuenta para compras.
+  </label>
+</div>
+
+
+    <button class="btn-primary" onclick="registrar()">Registrar</button>
+
+    <p id="mensajeRegistro" class="muted"></p>
+  </div>
+</section>
+
+
+  <section id="carrito" class="page content-wrap">
+  <div class="carrito-lista-wrapper">
+    <h2>Mi Carrito</h2>
+
+    <ul id="listaCarrito"></ul>
+
+    <div id="total"></div>
+
+    <button class="btn-primary" onclick="finalizarCompra()">Finalizar Compra</button>
+  <!-- 🔹 Botón de regreso inteligente -->
+  <button class="btn-return" onclick="volverUltimaTienda()">← Volver</button>
+</section>
+
+
+
+
+    <section id="final" class="page content-wrap">
+      <h2>¡Gracias por tu compra!</h2>
+      <p>Tu pedido ha sido procesado con éxito.</p>
+      <button class="btn-return" onclick="mostrarInicio()">Volver al inicio</button>
+    </section>
+  </main>
+
+  <!-- Modal Pago (oculto por defecto) -->
+<div id="modalPago" class="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:200;align-items:center;justify-content:center;">
+  <div class="modal-contenido" style="background:#0f0f0f;padding:18px;border-radius:10px;max-width:520px;width:94%;color:#eaeaea;box-shadow:0 10px 40px rgba(0,0,0,0.7);">
+    <h3>Formulario de pago</h3>
+    <p id="modalUserInfo" style="font-size:14px;color:#bdbdbd;margin-bottom:8px"></p>
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <input id="tarjeta-nombre" type="text" placeholder="Nombre en la tarjeta" style="padding:10px;border-radius:8px;border:none;background:#111;color:#fff">
+      <input id="tarjeta-num" type="text" placeholder="Número de tarjeta (simulado)" maxlength="19" style="padding:10px;border-radius:8px;border:none;background:#111;color:#fff">
+      <div style="display:flex;gap:8px;">
+        <input id="tarjeta-exp" type="text" placeholder="MM/AA" maxlength="5" style="flex:1;padding:10px;border-radius:8px;border:none;background:#111;color:#fff">
+        <input id="tarjeta-cvv" type="password" placeholder="CVV" maxlength="4" style="width:120px;padding:10px;border-radius:8px;border:none;background:#111;color:#fff">
+      </div>
+      <label style="font-size:13px;color:#cfcfcf"><input id="guardar-tarjeta" type="checkbox" disabled> (No se guarda) Guardar tarjeta — <small style="color:#aaa">No disponible en demo</small></label>
+
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px">
+        <button onclick="cerrarModalPago()" class="btn-return" style="background:transparent;padding:8px 12px">Cancelar</button>
+        <button onclick="procesarPago()" class="btn-primary" style="padding:8px 12px">Pagar ahora</button>
+      </div>
+
+      <p id="mensajePago" style="color:salmon;margin:6px 0 0 0"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById("reg-edad").addEventListener("input", () => {
+  const edad = Number(document.getElementById("reg-edad").value);
+  const tutorBox = document.getElementById("tutor-fields");
+  tutorBox.style.display = edad < 18 ? "block" : "none";
+});
+</script>
+
+
+  <script src="funciones.js"></script>
+</body>
+</html>

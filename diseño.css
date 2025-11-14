@@ -1,0 +1,589 @@
+/* ==============================
+   DISEÑO COMPLETO TIENDA GAMER
+   ============================== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background: linear-gradient(180deg, #0a0a0a, #111);
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+/* ==============================
+   VISIBILIDAD DE PÁGINAS
+   ============================== */
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}
+
+/* ==============================
+   HEADER
+   ============================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(15,15,15,0.95);
+  padding: 10px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo img {
+  height: 40px;
+  cursor: pointer;
+}
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-center input {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  width: 280px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  outline: none;
+}
+#selector-tienda {
+  display: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background: rgba(255,255,255,0.07);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+/* Corrige visibilidad del menú desplegable */
+#selector-tienda {
+  background: #0a0a0a; /* fondo oscuro */
+  color: #fff; /* texto blanco */
+}
+
+#selector-tienda option {
+  background: #111; /* fondo oscuro de las opciones */
+  color: #fff; /* texto visible */
+}
+
+.btn-sesion {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .3s;
+}
+.btn-sesion:hover {
+  background: rgba(255,255,255,0.25);
+}
+.carrito-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  cursor: pointer;
+}
+.carrito-count {
+  background: #ff3b3b;
+  padding: 2px 8px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* ==============================
+   INICIO
+   ============================== */
+.content-wrap {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+.hero-intro {
+  text-align: center;
+  margin-top: 40px;
+}
+.featured-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+.feature-card {
+  width: 220px;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+.feature-card.nintendo {
+  background: linear-gradient(180deg, #ff5b5b, #e60012);
+}
+.feature-card.playstation {
+  background: linear-gradient(180deg, #5da8ff, #003791);
+}
+.feature-card.xbox {
+  background: linear-gradient(180deg, #8fffb0, #107c10);
+}
+.feature-card.pc {
+  background: linear-gradient(180deg, #cfcfcf, #6c6f75);
+}
+
+/* ==============================
+   PLATAFORMAS Y SIDEBAR
+   ============================== */
+.platform-row {
+  display: flex;
+  gap: 20px;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 220px;
+}
+.sidebar button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.sidebar button:hover {
+  background: rgba(255,255,255,0.2);
+}
+.main-column {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==============================
+   CARRUSEL
+   ============================== */
+.carrusel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 550px;
+  margin-bottom: 30px;
+  z-index: 1;
+}
+
+.carrusel .slide img {
+  width: 100%;
+  height: auto;          /* Ajusta el alto según la imagen */
+  object-fit: contain;   /* No recorta la imagen, la muestra completa */
+  background-color: #000; /* Relleno oscuro si sobra espacio */
+  display: block;
+  margin: auto;
+}
+
+.slides {
+  display: flex;
+  transition: transform 1s ease;
+}
+.slide {
+  min-width: 100%;
+}
+.slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+.dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+.dot.active {
+  background: #fff;
+}
+
+/* ==============================
+   NOVEDADES
+   ============================== */
+.novedades h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+.novedades .tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 14px;
+}
+.tarjeta {
+  background: rgba(255,255,255,0.05);
+  padding: 12px;
+  border-radius: 10px;
+}
+.tarjeta img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.tarjeta h4 {
+  margin: 8px 0 4px 0;
+}
+.tarjeta p {
+  margin: 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* ==============================
+   ESPACIO RESERVADO
+   ============================== */
+.espacio-reservado {
+  height: 100px;
+  border: 2px dashed rgba(255,255,255,0.1);
+  margin-top: 25px;
+  border-radius: 10px;
+}
+
+/* ==============================
+   SUBPÁGINAS / TARJETAS
+   ============================== */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.card-producto {
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.card-producto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+.producto-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.card-producto h4 {
+  margin: 6px 0;
+  font-size: 16px;
+  color: #fff;
+}
+.card-producto p {
+  color: #ccc;
+  margin: 4px 0 10px;
+  font-weight: 700;
+}
+.btn-add {
+  background: linear-gradient(90deg, #2bb38a, #00ffc8);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn-add:hover {
+  opacity: 0.95;
+}
+.btn-return {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ==============================
+   EFECTO NEÓN DINÁMICO (temas)
+   ============================== */
+body[data-tienda="nintendo"] .btn-sesion,
+body[data-tienda="nintendo"] #selector-tienda,
+body[data-tienda="nintendo"] .sidebar,
+body[data-tienda="nintendo"] .card-producto { box-shadow: 0 0 12px #ff3b3b; border: 1px solid #ff3b3b; }
+body[data-tienda="playstation"] .btn-sesion,
+body[data-tienda="playstation"] #selector-tienda,
+body[data-tienda="playstation"] .sidebar,
+body[data-tienda="playstation"] .card-producto { box-shadow: 0 0 12px #3a8bff; border: 1px solid #3a8bff; }
+body[data-tienda="xbox"] .btn-sesion,
+body[data-tienda="xbox"] #selector-tienda,
+body[data-tienda="xbox"] .sidebar,
+body[data-tienda="xbox"] .card-producto { box-shadow: 0 0 12px #32ff6a; border: 1px solid #32ff6a; }
+body[data-tienda="pc"] .btn-sesion,
+body[data-tienda="pc"] #selector-tienda,
+body[data-tienda="pc"] .sidebar,
+body[data-tienda="pc"] .card-producto { box-shadow: 0 0 12px #a8a8a8; border: 1px solid #a8a8a8; }
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+@media (max-width: 900px) {
+  .platform-row {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  .header-center input {
+    width: 180px;
+  }
+}
+
+/* Fixes */
+#inicio { position: relative; z-index: 1; }
+#inicio::after { content: ""; position: absolute; inset: 0; z-index: 0; }
+header, main, .feature-card, .btn-sesion, .carrito-btn, select, input { position: relative; z-index: 2; }
+.carrusel { z-index: 1; pointer-events: auto; }
+.page:not(.active) { display: none !important; pointer-events: none; opacity: 0; }
+.subpage { display: none; }
+.subpage.active { display: block; }
+
+/* 🔒 Evita edición o selección de texto en las tarjetas de productos */
+.card-producto, 
+.card-producto * {
+  user-select: none;      /* No se puede seleccionar texto */
+  pointer-events: auto;   /* Mantiene el clic del botón activo */
+}
+
+.card-producto h4,
+.card-producto p {
+  cursor: default;        /* Cursor normal, no de texto */
+}
+
+/* === Tarjeta base para Login, Registro y Carrito === */
+.form-card {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 28px 32px;
+  background: rgba(20,20,20,0.85);
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  color: #eaeaea;
+}
+
+.form-card h2, .form-card h3 {
+  margin-bottom: 18px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Inputs */
+.form-card input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  background: #0f0f0f;
+  border: 1px solid #222;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.form-card input:focus {
+  border-color: #1e88ff;
+  outline: none;
+  box-shadow: 0 0 6px #1e88ff;
+}
+
+/* Botones */
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #006eff, #00a6ff);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  transform: scale(1.03);
+}
+
+.btn-return {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background: transparent;
+  color: #ddd;
+  cursor: pointer;
+}
+
+/* Mensajes */
+.muted {
+  font-size: 13px;
+  color: #aaa !important;
+  margin-top: -10px;
+}
+
+/* === CARRITO === */
+#carrito .carrito-lista-wrapper {
+  max-width: 500px;
+  margin: 30px auto;
+  background: rgba(20,20,20,0.85);
+  padding: 25px 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+}
+
+#listaCarrito li {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#listaCarrito button {
+  background: red;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#total {
+  margin-top: 18px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Botón pagar */
+#carrito button.btn-primary {
+  margin-top: 18px;
+}
+
+/* ===========================
+   ESTILO PARA CAMPOS DE TUTOR
+   =========================== */
+
+#tutor-fields {
+  margin-top: 20px;
+  padding: 18px 22px;
+  background: rgba(30,30,30,0.7);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+  animation: fadeInTutor .3s ease;
+}
+
+#tutor-fields h3 {
+  margin-bottom: 12px;
+  color: #ddd;
+  text-align: center;
+  font-size: 17px;
+}
+
+#tutor-fields input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  background: #101010;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+#tutor-fields input:focus {
+  border-color: #00a8ff;
+  box-shadow: 0 0 6px #00a8ff;
+}
+
+#tutor-fields label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@keyframes fadeInTutor {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.menor-alert {
+  background: rgba(255, 200, 0, 0.15);
+  border-left: 4px solid #ffc400;
+  padding: 10px 16px;
+  margin-top: 10px;
+  border-radius: 8px;
+  color: #ffd75e;
+  font-size: 14px;
+  text-align: center;
+}
+
+.supervised-tag {
+  background: rgba(255, 200, 0, 0.15);
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 220, 80, 0.4);
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-align: center;
+  color: #ffe29a;
+}
